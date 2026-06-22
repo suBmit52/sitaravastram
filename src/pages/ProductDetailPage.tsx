@@ -62,7 +62,7 @@ export default function ProductDetailPage() {
   };
 
   return (
-    <div className="min-h-screen bg-cream-100 pt-24">
+    <div className="min-h-screen bg-cream-100">
       {/* Breadcrumb */}
       <div className="bg-white border-b border-rosegold-100">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-3">

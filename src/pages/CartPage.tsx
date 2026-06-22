@@ -32,7 +32,7 @@ export default function CartPage() {
 
   if (items.length === 0) {
     return (
-      <div className="min-h-screen bg-cream-100 pt-24">
+      <div className="min-h-screen bg-cream-100">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
           <ShoppingBag size={72} className="text-rosegold-200 mx-auto mb-6" />
           <h1 className="font-playfair text-4xl font-semibold text-navy-700 mb-4">Your Bag is Empty</h1>
@@ -55,7 +55,7 @@ export default function CartPage() {
   }
 
   return (
-    <div className="min-h-screen bg-cream-100 pt-24">
+    <div className="min-h-screen bg-cream-100">
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <h1 className="font-playfair text-3xl lg:text-4xl font-semibold text-navy-700 mb-2">Shopping Bag</h1>
         <p className="font-inter text-sm text-gray-500 mb-8">{items.reduce((s, i) => s + i.quantity, 0)} items</p>
@@ -116,7 +116,7 @@ export default function CartPage() {
 
           {/* Summary */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-sm shadow-card p-6 sticky top-28">
+            <div className="bg-white rounded-sm shadow-card p-6 sticky top-[160px]">
               <h2 className="font-playfair text-xl font-semibold text-navy-700 mb-6">Order Summary</h2>
 
               {/* Coupon */}

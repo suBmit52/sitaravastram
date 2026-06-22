@@ -33,7 +33,7 @@ export default function CheckoutPage() {
 
   if (orderPlaced) {
     return (
-      <div className="min-h-screen bg-cream-100 pt-24 flex items-center justify-center px-4">
+      <div className="min-h-screen bg-cream-100 flex items-center justify-center px-4">
         <div className="bg-white rounded-sm shadow-luxury-lg p-10 max-w-lg w-full text-center">
           <div className="w-16 h-16 rounded-full bg-emerald-100 flex items-center justify-center mx-auto mb-6">
             <Check size={28} className="text-emerald-600" />
@@ -55,7 +55,7 @@ export default function CheckoutPage() {
   }
 
   return (
-    <div className="min-h-screen bg-cream-100 pt-24">
+    <div className="min-h-screen bg-cream-100">
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         <h1 className="font-playfair text-3xl font-semibold text-navy-700 mb-8">Checkout</h1>
 
@@ -222,7 +222,7 @@ export default function CheckoutPage() {
 
           {/* Order Summary */}
           <div className="lg:col-span-1">
-            <div className="bg-white rounded-sm shadow-card p-5 sticky top-28">
+            <div className="bg-white rounded-sm shadow-card p-5 sticky top-[160px]">
               <h3 className="font-playfair text-lg font-semibold text-navy-700 mb-4">Order Summary</h3>
               <div className="space-y-3 mb-4 max-h-48 overflow-y-auto scrollbar-hide">
                 {items.map(item => (

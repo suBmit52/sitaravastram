@@ -34,7 +34,7 @@ export default function AccountPage() {
   const wishlistProducts = products.filter(p => wishlistIds.includes(p.id));
 
   return (
-    <div className="min-h-screen bg-cream-100 pt-24">
+    <div className="min-h-screen bg-cream-100">
       <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
         {/* Header */}
         <div className="bg-navy-700 rounded-sm p-6 mb-8 relative overflow-hidden">

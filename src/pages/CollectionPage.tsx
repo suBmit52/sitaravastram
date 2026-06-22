@@ -98,7 +98,7 @@ export default function CollectionPage() {
   };
 
   return (
-    <div className="min-h-screen bg-cream-100 pt-24">
+    <div className="min-h-screen bg-cream-100">
       {/* Hero Banner */}
       <div className="bg-navy-700 text-white py-12">
         <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -167,7 +167,7 @@ export default function CollectionPage() {
           {/* Sidebar Filters */}
           {filtersOpen && (
             <div className="hidden lg:block w-60 flex-shrink-0">
-              <div className="bg-white rounded-sm shadow-card p-5 sticky top-28">
+              <div className="bg-white rounded-sm shadow-card p-5 sticky top-[160px]">
                 <div className="flex items-center justify-between mb-5">
                   <h3 className="font-inter text-sm font-bold text-navy-700">Filters</h3>
                   {activeFilterCount > 0 && (
