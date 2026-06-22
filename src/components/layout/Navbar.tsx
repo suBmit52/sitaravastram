@@ -200,7 +200,7 @@ export default function Navbar() {
   const textCol = isScrolledOrNotHome ? 'text-navy-700' : 'text-white';
   const logoFilter = isScrolledOrNotHome ? '' : 'brightness-0 invert';
   const navBg = isScrolledOrNotHome
-    ? 'bg-white/97 backdrop-blur-xl shadow-[0_2px_24px_rgba(27,42,74,0.10)] border-b border-rosegold-200/50'
+    ? 'bg-white shadow-[0_2px_24px_rgba(27,42,74,0.10)] border-b border-rosegold-100'
     : 'bg-transparent';
 
   return (
@@ -378,11 +378,40 @@ export default function Navbar() {
             onMouseLeave={closeMega}
           >
             <div className="max-w-screen-2xl mx-auto px-10 py-8">
-              <div className="flex gap-12">
-                {/* Link sections */}
-                <div className="flex gap-12 flex-1">
+              <div className="flex gap-10">
+                {/* Featured images - LEFT side */}
+                <div className="flex gap-4 flex-shrink-0">
+                  {megaMenus[activeMega].featured.map(feat => (
+                    <Link
+                      key={feat.title}
+                      to={feat.href}
+                      onClick={() => setActiveMega(null)}
+                      className="group relative w-48 overflow-hidden rounded-sm shadow-card hover:shadow-card-hover transition-all duration-300"
+                    >
+                      <div className="aspect-[3/4]">
+                        <img
+                          src={feat.image}
+                          alt={feat.title}
+                          className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-navy-900/70 via-transparent to-transparent" />
+                        <div className="absolute bottom-0 left-0 right-0 p-4">
+                          <p className="font-playfair text-base font-semibold text-white leading-tight">
+                            {feat.title}
+                          </p>
+                          <p className="font-inter text-[11px] text-rosegold-300 mt-1 group-hover:underline">
+                            Shop Now →
+                          </p>
+                        </div>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+
+                {/* Link sections - RIGHT side */}
+                <div className="flex gap-14 flex-1 pl-4 border-l border-rosegold-100">
                   {megaMenus[activeMega].sections.map(section => (
-                    <div key={section.title} className="min-w-[160px]">
+                    <div key={section.title} className="min-w-[170px]">
                       <p className="font-inter text-[10px] font-bold tracking-[0.25em] uppercase text-rosegold-500 mb-4">
                         {section.title}
                       </p>
@@ -406,35 +435,6 @@ export default function Navbar() {
                         ))}
                       </ul>
                     </div>
-                  ))}
-                </div>
-
-                {/* Featured images */}
-                <div className="flex gap-4 flex-shrink-0">
-                  {megaMenus[activeMega].featured.map(feat => (
-                    <Link
-                      key={feat.title}
-                      to={feat.href}
-                      onClick={() => setActiveMega(null)}
-                      className="group relative w-40 overflow-hidden rounded-sm shadow-card hover:shadow-card-hover transition-all duration-300"
-                    >
-                      <div className="aspect-[3/4]">
-                        <img
-                          src={feat.image}
-                          alt={feat.title}
-                          className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-navy-900/70 via-transparent to-transparent" />
-                        <div className="absolute bottom-0 left-0 right-0 p-3">
-                          <p className="font-inter text-xs font-semibold text-white leading-tight">
-                            {feat.title}
-                          </p>
-                          <p className="font-inter text-[10px] text-rosegold-300 mt-0.5 group-hover:underline">
-                            Shop →
-                          </p>
-                        </div>
-                      </div>
-                    </Link>
                   ))}
                 </div>
               </div>

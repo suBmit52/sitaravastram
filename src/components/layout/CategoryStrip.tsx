@@ -33,21 +33,21 @@ export default function CategoryStrip() {
   const currentSlug = location.pathname.split('/').pop() || '';
 
   return (
-    <div className="fixed left-0 right-0 z-30 bg-white border-b border-rosegold-100 shadow-sm top-[96px] lg:top-[104px]">
+    <div className="fixed left-0 right-0 z-30 bg-cream-50 border-b border-rosegold-100 top-[96px] lg:top-[104px]">
       <div className="relative max-w-screen-2xl mx-auto">
         {/* Left scroll arrow */}
         <button
           onClick={() => scroll('left')}
-          className="absolute left-0 top-0 bottom-0 z-10 flex items-center px-2 bg-gradient-to-r from-white via-white/90 to-transparent hover:text-rosegold-500 text-gray-400 transition-colors lg:hidden xl:flex"
+          className="absolute left-0 top-0 bottom-0 z-10 flex items-center px-2 bg-gradient-to-r from-cream-50 via-cream-50/90 to-transparent hover:text-rosegold-500 text-gray-400 transition-colors lg:hidden xl:flex"
           aria-label="Scroll left"
         >
           <ChevronLeft size={16} />
         </button>
 
-        {/* Scrollable strip */}
+        {/* Scrollable strip - pill buttons */}
         <div
           ref={scrollRef}
-          className="flex items-center gap-0 overflow-x-auto scrollbar-hide px-8 lg:px-12"
+          className="flex items-center gap-2 overflow-x-auto scrollbar-hide px-6 py-3"
         >
           {stripItems.map(item => {
             const isActive = currentSlug === item.href.split('/').pop();
@@ -55,17 +55,17 @@ export default function CategoryStrip() {
               <Link
                 key={item.label}
                 to={item.href}
-                className={`flex-shrink-0 flex items-center gap-1.5 px-4 py-3 font-inter text-[12px] font-medium tracking-wide whitespace-nowrap border-b-2 transition-all duration-200 ${
+                className={`flex-shrink-0 flex items-center gap-1.5 px-4 py-2 font-inter text-[12px] font-medium tracking-wide whitespace-nowrap rounded-full border transition-all duration-200 ${
                   isActive
-                    ? 'border-rosegold-500 text-rosegold-500'
-                    : 'border-transparent text-gray-600 hover:text-navy-700 hover:border-rosegold-200'
-                } ${item.isSale ? 'text-red-500 hover:text-red-600 font-semibold' : ''}`}
+                    ? 'bg-navy-700 border-navy-700 text-white shadow-sm'
+                    : 'bg-white border-rosegold-200 text-navy-700 hover:border-rosegold-400 hover:text-rosegold-600'
+                } ${item.isSale ? 'bg-red-50 border-red-300 text-red-600 hover:bg-red-500 hover:text-white hover:border-red-500' : ''}`}
               >
                 {item.isHot && (
                   <Sparkles size={11} className="text-rosegold-400 flex-shrink-0" />
                 )}
                 {item.label}
-                {item.isSale && (
+                {item.isSale && !isActive && (
                   <span className="bg-red-500 text-white text-[9px] font-bold px-1.5 py-0.5 rounded-sm tracking-wide">
                     HOT
                   </span>
@@ -78,7 +78,7 @@ export default function CategoryStrip() {
         {/* Right scroll arrow */}
         <button
           onClick={() => scroll('right')}
-          className="absolute right-0 top-0 bottom-0 z-10 flex items-center px-2 bg-gradient-to-l from-white via-white/90 to-transparent hover:text-rosegold-500 text-gray-400 transition-colors lg:hidden xl:flex"
+          className="absolute right-0 top-0 bottom-0 z-10 flex items-center px-2 bg-gradient-to-l from-cream-50 via-cream-50/90 to-transparent hover:text-rosegold-500 text-gray-400 transition-colors lg:hidden xl:flex"
           aria-label="Scroll right"
         >
           <ChevronRight size={16} />
